@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import './App.css';
 import axios from "axios";
+import NavBar from './components/Navbar'
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
+      <div className="book-list">
       {books.map((book, index) => {
         return(
           <ul key={index}>
@@ -31,7 +34,7 @@ function App() {
           </ul>
         )
       })}
-    
+    </div>
     </div>
   )
 
