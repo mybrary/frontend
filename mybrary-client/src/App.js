@@ -1,41 +1,40 @@
-import React, { Component } from "react"
+import React, {useState, useEffect} from "react"
+import './App.css';
+import axios from "axios";
 
-class App extends Component {
 
-  state = {
-    data: null
+function App() {
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+  function getBooks() {
+    axios.get('/books')
+    .then(res => {
+      setBooks(res.data)
+    })
+    .catch(console.error)
   }
+  getBooks()
+  }, [])
 
-
-  componentDidMount() {
-    this.callBackendAPI()
-    .then(res => this.setState({data: res.express}))
-    .catch(err => console.log(err))
-  }
-
-  callBackendAPI = async() => {
-    const response = await fetch('/books')
-    const data = await response.json()
-    if (data) {
-      const {
-        title: bookTitle,
-      } = data[0]
-    } else {
-    if (response.status !== 200) {
-      throw Error(data.message) 
-    }
-  }
-    return data;
-  }
-
-  render(){
   return (
-      <div className="App">
-      
+    <div className="App">
+      {books.map((book, index) => {
+        return(
+          <ul key={index}>
+          <li>
+          <h2>{book.title}</h2>
+          <h4>{book.author}</h4>
+          <p>Rating : {book.rating}</p>
+          <p>Review: {book.review}</p>
+          </li>
+          </ul>
+        )
+      })}
     
-      </div>
-    );
-  }
+    </div>
+  )
+
 }
 
 export default App;
