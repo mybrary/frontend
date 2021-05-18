@@ -1,0 +1,142 @@
+/* 
+====== 
+Fonts
+======
+*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto&display=swap');
+/* 
+====== 
+Variables 
+======
+*/
+:root {
+  --mainBackground: #f8f8f8;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --lightGrey: rgb(113, 113, 113);
+  --navBackground: #e7dfc6;
+  --mainDarkColor: #504746;
+  --mainLightColor: #d7f2ba;
+  --mainGreen: #0c7c59;
+  --mainBlue: #58a4b0;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --smallWidth: 85vw;
+  --maxWidth: 40rem;
+  --fullWidth: 1170px;
+}
+
+
+/* 
+====== 
+Global Styles
+======
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* 
+====== 
+Navbar
+======
+*/
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: .85rem;
+  padding-right: 10px;
+}
+.logo {
+  height: 3rem;
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+.navbar {
+  background-color: var(--navBackground);
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items:center;
+  border-bottom: 1px solid var(--lightGrey);
+  font-family: 'Raleway', sans-serif;
+}
+
+.nav-center{
+  display: flex;
+  align-items: center;
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-links a {
+  display: inline-block;
+  color: var(--mainBlack);
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  font-size: .85rem;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--offWhite);
+  background: var(--mainDarkColor);
+}
+
+
+/* 
+====== 
+Book List
+======
+*/
+
+.book-list{
+  margin: 50px;
+}
+.book-list ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.book-list h2{
+  font: 16px/1.5;
+}
+
+.book-list img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+ 
+ .book-list li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+ .book-list li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
