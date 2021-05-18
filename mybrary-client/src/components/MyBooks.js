@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 function MyBooks() {
@@ -9,6 +10,7 @@ const [books, setBooks] = useState([])
     axios.get('/books')
     .then(res => {
       setBooks(res.data)
+      console.log(res.data)
     })
     .catch(console.error)
   }
@@ -16,22 +18,24 @@ const [books, setBooks] = useState([])
   }, [])
 
     return (
-        <div>
-             <div className="book-list">
-      {books.map((book, index) => {
-        return(
-          <ul key={index}>
-          <li>
-          <h2>{book.title}</h2>
-          <h4>{book.author}</h4>
-          <p>Rating : {book.rating}</p>
-          <p>Review: {book.review}</p>
-          </li>
-          </ul>
-        )
-      })}
-    </div>
-        </div>
+        <section className="container">
+            {books.map((book, id) => {
+                return(
+                    <Link to={`/${book._id}`} key={book._id}>
+                    <div className="book-list">
+                    <ul>
+                    <li>
+                    <h2>{book.title}</h2>
+                    <h4>{book.author}</h4>
+                    <p>Rating : {book.rating}</p>
+                    <p>Review: {book.review}</p>
+                    </li>
+                    </ul>
+                    </div>
+                    </Link>
+                )
+            })}
+        </section>
     );
 }
 

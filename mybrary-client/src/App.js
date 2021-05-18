@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import MyBooks from './components/MyBooks'
+import BookDetails from './components/BookDetails'
 import { Route } from 'react-router-dom'
 import './App.css';
 
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
       <NavBar />
     <main>
-      <Route path="/mybooks" exact component={MyBooks} />
+      <Route path="/myBooks" exact component={MyBooks} />
+      <Route path="/:id" exact component={BookDetails} />
     </main>
       </div>
   )
