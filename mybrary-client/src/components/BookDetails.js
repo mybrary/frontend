@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from "axios"
 
 function BookDetails() {
@@ -25,6 +25,7 @@ useEffect(() => {
             <p>Rating : {book.rating}</p>
             <p>Review: {book.review}</p>
             </div>
+        <Link to={`/editBook/${book._id}`} key={book._id}><button>Edit</button></Link>
         </div>
     );
 }
