@@ -15,10 +15,10 @@ export default function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/my-books">My Books</Link>
+            <Link to="/mybooks">My Books</Link>
           </li>
           <li>
-            <Link to="/my-books">Wishlist</Link>
+            <Link to="/my-wishlist">Wishlist</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
