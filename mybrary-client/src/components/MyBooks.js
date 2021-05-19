@@ -7,7 +7,7 @@ const [books, setBooks] = useState([])
 
   useEffect(() => {
   function getBooks() {
-    axios.get('/books')
+    axios.get('/books/')
     .then(res => {
       setBooks(res.data)
       console.log(res.data)
@@ -21,7 +21,7 @@ const [books, setBooks] = useState([])
         <section className="container">
             {books.map((book, id) => {
                 return(
-                    <Link to={`/${book._id}`} key={book._id}>
+                    <Link to={`/${book._id}`} key={book.id}>
                     <div className="book-list">
                     <ul>
                     <li>

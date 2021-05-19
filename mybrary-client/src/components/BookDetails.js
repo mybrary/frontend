@@ -16,7 +16,7 @@ useEffect(() => {
       .catch(console.error)
     }
     getBook()
-    })
+    },[id])
     return (
         <div className="details-container">
             <div className="book-list">
