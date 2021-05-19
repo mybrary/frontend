@@ -1,5 +1,6 @@
-import React, {useState } from 'react';
-import { useParams } from 'react-router-dom'
+import React, {useState, useEffect } from 'react';
+import { useParams, Link  } from 'react-router-dom'
+import BookDetails from './BookDetails'
 import axios from "axios"
 
 function EditBook() {
@@ -8,21 +9,21 @@ function EditBook() {
     const [author, setAuthor] = useState()
     const [rating, setRating] = useState()
     const [review, setReview] = useState()
-    // const [defaultBook, setDefaultBook] = useState()
+    const [defaultBook, setDefaultBook] = useState()
     const { id } = useParams()
 
 
-    // useEffect(() => {
-    //     function getDefault() {
-    //       axios.get(`books/${id}`)
-    //       .then(res => {
-    //         setDefaultBook(res.data)
-    //         console.log(res.data)
-    //       })
-    //       .catch(console.error)
-    //     }
-    //     getDefault()
-    //     },[id])
+    useEffect(() => {
+        function getDefault() {
+          axios.get(`/books/${id}`)
+          .then(res => {
+            setDefaultBook(res.data)
+            console.log(res.data)
+          })
+          .catch(console.error)
+        }
+        getDefault()
+        },[id])
 
     const handleSubmit = () => {
         const data = {
@@ -44,6 +45,7 @@ function EditBook() {
 
     return (
         <section className="container">
+            <BookDetails />
             <h2>Edit Book</h2>
             <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -52,7 +54,7 @@ function EditBook() {
                        className="form-control" 
                        id="title"
                        name="title" 
-                       placeholder='title'  
+                    //    placeholder={defaultBook.title}  
                     //    defaultValue={title}
                        onChange={e => setTitle(e.target.value)}/>
             </div>
@@ -84,12 +86,10 @@ function EditBook() {
                        onChange={e => setReview(e.target.value)}>
                 </textarea>
             </div>
-            <button
-                type="submit"
-                onClick={handleSubmit}
-                >Submit</button>
             
-            {/* <a href="/todos" class="btn btn-secondary">Cancel</a> */}
+           
+            
+            <Link to={`/myBooks`}><button>Back to My Books</button></Link>
             </form>
              
         </section>
