@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import DeleteButton from './buttons/DeleteButton'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 
@@ -21,18 +22,21 @@ const [books, setBooks] = useState([])
         <section className="container">
             {books.map((book, id) => {
                 return(
-                    <Link to={`/${book._id}`} key={book.id}>
+                    
                     <div className="book-list">
                     <ul>
                     <li>
+                    <Link to={`books/${book._id}`} key={book._id}>
                     <h2>{book.title}</h2>
+                    </Link>
                     <h4>{book.author}</h4>
                     <p>Rating : {book.rating}</p>
                     <p>Review: {book.review}</p>
+                    <Link to={`/delete/${book._id}`} key={book._id}><DeleteButton /></Link>
                     </li>
                     </ul>
                     </div>
-                    </Link>
+                    
                 )
             })}
         </section>

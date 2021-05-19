@@ -8,7 +8,7 @@ const { id } = useParams()
 
 useEffect(() => {
     function getBook() {
-      axios.get(`books/${id}`)
+      axios.get(`/books/${id}`)
       .then(res => {
         setBook(res.data)
         console.log(res.data)
@@ -18,7 +18,7 @@ useEffect(() => {
     getBook()
     },[id])
     return (
-        <div className="details-container">
+        <div className="container">
             <div className="book-list">
             <h2>{book.title}</h2>
             <h4>{book.author}</h4>
@@ -26,6 +26,8 @@ useEffect(() => {
             <p>Review: {book.review}</p>
             </div>
         <Link to={`/editBook/${book._id}`} key={book._id}><button>Edit</button></Link>
+        
+        <Link to={`/myBooks`}><button>My Books</button></Link>
         </div>
     );
 }
