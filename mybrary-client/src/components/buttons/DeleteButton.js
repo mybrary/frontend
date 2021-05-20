@@ -4,7 +4,7 @@ import DeleteWarning from '../Modal/DeleteWarning'
 import axios from 'axios'
 
 function DeleteButton(props) {
-    const [redirect, setRedirecet] = useState(false)
+    // const [redirect, setRedirecet] = useState(false)
     const {id} = useParams()
     let history = useHistory()
     

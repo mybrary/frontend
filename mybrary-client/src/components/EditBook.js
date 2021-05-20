@@ -1,37 +1,15 @@
 import React, {useState, useEffect } from 'react';
-import { useParams, Link, Redirect  } from 'react-router-dom'
-import BookDetails from './BookDetails'
+import { useParams, Link, useHistory  } from 'react-router-dom'
+import BookDetailsEdit from './BookDetailsEdit'
 import axios from "axios"
 
 function EditBook() {
     const [title, setTitle] = useState()
-    const [ setData] = useState(null)
+    const [ setEdit] = useState()
     const [author, setAuthor] = useState()
     const [rating, setRating] = useState()
     const [review, setReview] = useState()
-    const [defaultBook, setDefaultBook] = useState()
-    const [redirect, setRedirect] = useState(false)
     const { id } = useParams()
-
-    function redirectThis() {
-        setRedirect(true)
-    }
-
-    function renderRedirect() {
-       
-    }
-    
-    useEffect(() => {
-        function getDefault() {
-          axios.get(`/books/${id}`)
-          .then(res => {
-            setDefaultBook(res.data)
-            console.log(res.data)
-          })
-          .catch(console.error)
-        }
-        getDefault()
-        },[id])
     
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -43,7 +21,7 @@ function EditBook() {
         }  
         axios.put(`/books/${id}`, data)
         .then(res => {
-            setData(res.data)
+            setEdit(res.data)
             setTitle('')
             setAuthor('')
             setRating('')
@@ -52,10 +30,10 @@ function EditBook() {
         
     }
 
-
+    
     return (
         <section className="container">
-            <BookDetails />
+            <BookDetailsEdit />
             <h2>Edit Book</h2>
             <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -64,8 +42,6 @@ function EditBook() {
                        className="form-control" 
                        id="title"
                        name="title" 
-                    //    placeholder={defaultBook.title}  
-                    //    defaultValue={title}
                        onChange={e => setTitle(e.target.value)}/>
             </div>
             <div className="form-group">
@@ -73,8 +49,6 @@ function EditBook() {
                 <input type="text"  
                        className="form-control" 
                        name="author" 
-                    //    placeholder={title}
-                    //    defaultValue={title}
                        onChange={e => setAuthor(e.target.value)}/>
             </div>
             <div className="form-group">
@@ -82,8 +56,6 @@ function EditBook() {
                 <input type="text"  
                        className="form-control" 
                        name="rating" 
-                    //    placeholder={title}
-                    //    defaultValue={title}
                        onChange={e => setRating(e.target.value)}/>
             </div>
             <div className="form-group">
@@ -91,18 +63,10 @@ function EditBook() {
                 <textarea  
                        className="form-control" 
                        name="review" 
-                    //    placeholder={title}
-                    //    defaultValue={title}
                        onChange={e => setReview(e.target.value)}>
                 </textarea>
-            </div>
-            
-            <div>
-            {renderRedirect()}
-            <input onClick={redirectThis} type='submit' value="submit"/>
-            </div>
-            
-            <Link to={`/myBooks`}><button>Back to My Books</button></Link>
+            </div>  
+            <input type="submit" value="submit"/>      
             </form>
              
         </section>

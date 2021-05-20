@@ -10,7 +10,7 @@ const [books, setBooks] = useState([])
 
   useEffect(() => {
   function getBooks() {
-    axios.get('/books/')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}books/`)
     .then(res => {
       setBooks(res.data)
       console.log(res.data)
