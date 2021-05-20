@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { useParams, Link  } from 'react-router-dom'
+import { useParams, Link, Redirect  } from 'react-router-dom'
 import BookDetails from './BookDetails'
 import axios from "axios"
 
@@ -10,9 +10,17 @@ function EditBook() {
     const [rating, setRating] = useState()
     const [review, setReview] = useState()
     const [defaultBook, setDefaultBook] = useState()
+    const [redirect, setRedirect] = useState(false)
     const { id } = useParams()
 
+    function redirectThis() {
+        setRedirect(true)
+    }
 
+    function renderRedirect() {
+       
+    }
+    
     useEffect(() => {
         function getDefault() {
           axios.get(`/books/${id}`)
@@ -24,8 +32,9 @@ function EditBook() {
         }
         getDefault()
         },[id])
-
-    const handleSubmit = () => {
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
         const data = {
             title: title,
             author: author,
@@ -40,6 +49,7 @@ function EditBook() {
             setRating('')
             setReview('')
         })  
+        
     }
 
 
@@ -87,7 +97,10 @@ function EditBook() {
                 </textarea>
             </div>
             
-           
+            <div>
+            {renderRedirect()}
+            <input onClick={redirectThis} type='submit' value="submit"/>
+            </div>
             
             <Link to={`/myBooks`}><button>Back to My Books</button></Link>
             </form>

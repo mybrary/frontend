@@ -8,7 +8,7 @@ const { id } = useParams()
 
 useEffect(() => {
     function getBook() {
-      axios.get(`/books/${id}`)
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}books/${id}`)
       .then(res => {
         setBook(res.data)
         console.log(res.data)

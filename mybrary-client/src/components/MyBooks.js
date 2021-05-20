@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import DeleteButton from './buttons/DeleteButton'
+import DeleteWarning from './Modal/DeleteWarning'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 
 function MyBooks() {
 const [books, setBooks] = useState([])
+
 
   useEffect(() => {
   function getBooks() {
@@ -32,7 +34,7 @@ const [books, setBooks] = useState([])
                     <h4>{book.author}</h4>
                     <p>Rating : {book.rating}</p>
                     <p>Review: {book.review}</p>
-                    <Link to={`/delete/${book._id}`} key={book._id}><DeleteButton /></Link>
+                    <Link to={`/delete/${book._id}`} key={book._id}><button>Delete</button></Link>
                     </li>
                     </ul>
                     </div>

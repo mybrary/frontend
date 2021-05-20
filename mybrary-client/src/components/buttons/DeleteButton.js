@@ -1,10 +1,12 @@
-import React from 'react';
-import { useParams } from 'react-router-dom'
+import React, {useState} from 'react';
+import { useParams, Link, useHistory } from 'react-router-dom'
+import DeleteWarning from '../Modal/DeleteWarning'
 import axios from 'axios'
 
 function DeleteButton(props) {
-    // const [id, setId] = useState()
+    const [redirect, setRedirecet] = useState(false)
     const {id} = useParams()
+    let history = useHistory()
     
     // function handleChange(event) {
     //     setId({id: event.target.value})
@@ -13,16 +15,17 @@ function DeleteButton(props) {
     function handleSubmit(event) {
         axios.delete(`/books/${id}`)
         .then(res => {
-            console.log(res)
-            console.log(res.data)
+            history.goBack()
         })
     }
     return (
         <div>
+            <h3>Are you sure you want to delete this book?</h3>
             <button
                 type="submit"
                 onClick={handleSubmit}
                 >Delete</button>
+            <Link to="/myBooks"><button>Cancel</button></Link>
             
         </div>
     );

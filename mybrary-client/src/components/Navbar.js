@@ -21,7 +21,7 @@ export default function Navbar() {
             <Link to="/my-wishlist">Wishlist</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/addNewBook">Add Book</Link>
           </li>
         </ul>
       </div>
