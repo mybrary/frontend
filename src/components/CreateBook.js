@@ -8,27 +8,36 @@ function CreateBook(props) {
     const [rating, setRating] = useState();
     const [review, setReview] = useState();
 let history = useHistory();
-    const bookInfo = {
-        title: title,
-        authors: authors,
-        rating: rating,
-        review: review,
-        read: false
-      };
+
+      // async function postBooks() {
+      //   const { data } = await axios.post(
+      //       '/books', bookInfo
+      //   );
+      //   setAddBook(data);
+      // };
       const handleSubmit = e => {
         e.preventDefault();
-        postBooks();
-        history.push('/')
-      };
-      async function postBooks() {
-        const { data } = await axios.post(
-            '/books', bookInfo
-        );
-        setAddBook(data);
+        const bookInfo = {
+          title: title,
+          authors: authors,
+          rating: rating,
+          review: review,
+          read: false
+        };
+        axios.post('/books', bookInfo)
+        .then(res => {
+          setAddBook(res.data)
+        })
+        .then(res => {
+          history.push('/')
+        })
+        
+        // postBooks();
+        
       };
       return (
         <div className="book-details">
-          <h1>Add to Your Reading List</h1>
+          <h2>Add to Your Reading List</h2>
         <form onSubmit={handleSubmit}>
           <label>
             <br />

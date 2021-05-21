@@ -12,18 +12,7 @@ function DeleteButton(props) {
             history.goBack()
         })
     }
-    // const {id} = useParams()
-    
-//     function handleSubmit(event) {
-//         axios.delete(`/books/${id}`)
-//         .then(res => {
-//             console.log(res)
-//             console.log(res.data)
-//         })
-//     }
-//         if(!props.show) {
-//         return null
-// }
+
     return (
         <div className="delete-modal">
             <div className="modal-content">

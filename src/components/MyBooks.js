@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import DeleteButton from './buttons/DeleteButton'
-import DeleteWarning from './Modal/DeleteWarning'
 import DeleteImage from '../resources/trashcan.png'
 import { Link } from 'react-router-dom'
  
@@ -15,7 +13,6 @@ const [books, setBooks] = useState([])
     axios.get(`${process.env.REACT_APP_BACKEND_URL}books/`)
     .then(res => {
       setBooks(res.data)
-      console.log(res.data)
     })
     .catch(console.error)
   }
