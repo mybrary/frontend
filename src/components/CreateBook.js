@@ -9,12 +9,7 @@ function CreateBook(props) {
     const [review, setReview] = useState();
 let history = useHistory();
 
-      // async function postBooks() {
-      //   const { data } = await axios.post(
-      //       '/books', bookInfo
-      //   );
-      //   setAddBook(data);
-      // };
+
       const handleSubmit = e => {
         e.preventDefault();
         const bookInfo = {
@@ -24,15 +19,11 @@ let history = useHistory();
           review: review,
           read: false
         };
-        axios.post('/books', bookInfo)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}books`, bookInfo)
         .then(res => {
           setAddBook(res.data)
-        })
-        .then(res => {
           history.push('/')
         })
-        
-        // postBooks();
         
       };
       return (

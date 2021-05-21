@@ -7,7 +7,7 @@ function DeleteButton(props) {
     let history = useHistory()
 
     function handleSubmit(event) {
-        axios.delete(`/books/${id}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}books/${id}`)
         .then(res => {
             history.goBack()
         })
