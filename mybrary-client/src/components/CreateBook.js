@@ -1,40 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function CreateBook(props) {
     const [addBook, setAddBook] = useState();
     const [title, setTitle] = useState();
     const [author, setAuthor] = useState();
-    const [publish_date, setPublishDate] = useState();
     const [rating, setRating] = useState();
     const [review, setReview] = useState();
     
+let history = useHistory();
+
     const bookInfo = {
         title: title,
         author: author,
-        publish_date: publish_date,
         rating: rating,
-        review: review
-        
+        review: review,
+        read: false
       };
       const handleSubmit = e => {
         e.preventDefault();
         postBooks();
-        console.log(postBooks)
+        history.push('/myBooks')
       };
       async function postBooks() {
         const { data } = await axios.post(
-            
-          '/books', bookInfo
-        )
+            '/books', bookInfo
+        );
         setAddBook(data); 
-        console.log(bookInfo)
       };
-    useEffect(() => {
-        postBooks();
-      }, []);
+    
       return (
         <div>
+          <h1>Add to Your Reading List</h1>
         <form onSubmit={handleSubmit}>
           <label>
             Book Title<br />
@@ -43,9 +41,6 @@ function CreateBook(props) {
           Author(s)<br />
             <input type = "text" name = "Author" onChange={event => setAuthor(event.target.value)} />
             <br />
-            Publish Date<br />
-            <input type = "text" name = "Publish Date" onChange={event => setPublishDate(event.target.value)} />
-            <br />
             Rating<br />
             <input type = "number" name = "Rating" onChange={event => setRating(event.target.value)} />
             <br />
@@ -53,10 +48,11 @@ function CreateBook(props) {
             <input type = "text" name = "Review" onChange={event => setReview(event.target.value)} />
           </label>
           <br />
-          <button type = "submit">Add Book</button>
+          <button type = "submit">Add New Book</button>
         
         </form>
         </div>
     );
 }
 export default CreateBook;
+

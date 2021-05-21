@@ -11,17 +11,20 @@ export default function Navbar() {
         <h1>MyBrary</h1>
         </div>
         <ul className="nav-links">
-          <li>
+          {/* <li>
             <Link to="/">Home</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/myBooks">My Books</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/my-wishlist">Wishlist</Link>
+          </li> */}
+          <li>
+            <Link to="/addNewBook">Add to Reading List</Link>
           </li>
           <li>
-            <Link to="/addNewBook">Add Book</Link>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { useParams, Link, Redirect  } from 'react-router-dom'
+import { useParams, Link, useHistory  } from 'react-router-dom'
 import BookDetails from './BookDetails'
 import axios from "axios"
 
@@ -20,6 +20,8 @@ function EditBook() {
     function renderRedirect() {
        
     }
+
+    let history = useHistory();
     
     useEffect(() => {
         function getDefault() {
@@ -32,15 +34,18 @@ function EditBook() {
         }
         getDefault()
         },[id])
-    
-    const handleSubmit = (event) => {
-        event.preventDefault()
+
         const data = {
             title: title,
             author: author,
             rating: rating,
             review: review
         }  
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        history.push('/myBooks')
+      
         axios.put(`/books/${id}`, data)
         .then(res => {
             setData(res.data)

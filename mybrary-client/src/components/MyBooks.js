@@ -6,6 +6,7 @@ import axios from "axios";
 
 function MyBooks() {
 const [books, setBooks] = useState([])
+const [fetched, setFetched] = useState()
 
 
   useEffect(() => {
@@ -20,9 +21,15 @@ const [books, setBooks] = useState([])
   getBooks()
   }, [])
 
+  const handleChange = (book) => {
+      book.read = true
+      axios.put(`/books/${book._id}`, book)     
+
+          }
+
     return (
         <section className="container">
-            {books.map((book, id) => {
+            {books.map((book) => {
                 return(
                     
                     <div className="book-list">
@@ -35,6 +42,8 @@ const [books, setBooks] = useState([])
                     <p>Rating : {book.rating}</p>
                     <p>Review: {book.review}</p>
                     <Link to={`/delete/${book._id}`} key={book._id}><button>Delete</button></Link>
+                    <p>Read</p>
+                    <input type = "checkbox" onChange={e => handleChange(book)}></input>
                     </li>
                     </ul>
                     </div>
