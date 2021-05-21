@@ -71,9 +71,11 @@ function EditBook() {
                        onChange={e => setReview(e.target.value)}>
                 </textarea>
             </div>  
-            <input type="submit" className="submit-button"value="Submit"/>      
-            </form>
+            <input type="submit" className="submit-button" value="Submit"/> 
+
+            <Link to={`/`}><button className="back-button">Cancel</button></Link>
              
+            </form>
         </div>
        
     );

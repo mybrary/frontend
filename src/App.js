@@ -3,7 +3,7 @@ import MyBooks from './components/MyBooks'
 import BookDetails from './components/BookDetails'
 import EditBook from './components/EditBook'
 import CreateBook from './components/CreateBook'
-// import CreatePage from './components/pages/CreatePage'
+import AboutPage from './components/AboutPage'
 
 import DeleteButton from './components/buttons/DeleteButton'
 import { Route } from 'react-router-dom'
@@ -22,6 +22,7 @@ function App() {
       <Route exact path="/editBook/:id"  component={EditBook}/>
       <Route exact path="/delete/:id"  component={DeleteButton}/>
       <Route path="/addBook" exact component={CreateBook} />
+      <Route path="/about" exact component={AboutPage} />
       <Route path="/addNewBook" exact component={CreateBook} />
       </div>
   )

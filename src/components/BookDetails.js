@@ -20,7 +20,7 @@ useEffect(() => {
     return (
       <div className="book-details">
         <h2>{book.title}</h2>
-        <h4>{book.author}</h4>
+        <h4>{book.authors}</h4>
         <p>Rating : {book.rating}</p>
         <p>Review: {book.review}</p>
       <div className="button-group">

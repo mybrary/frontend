@@ -1,16 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom'
-import DeleteWarning from '../Modal/DeleteWarning'
 import axios from 'axios'
 
 function DeleteButton(props) {
-    // const [redirect, setRedirecet] = useState(false)
     const {id} = useParams()
     let history = useHistory()
-    
-    // function handleChange(event) {
-    //     setId({id: event.target.value})
-    // }
 
     function handleSubmit(event) {
         axios.delete(`/books/${id}`)
@@ -18,16 +12,35 @@ function DeleteButton(props) {
             history.goBack()
         })
     }
+    // const {id} = useParams()
+    
+//     function handleSubmit(event) {
+//         axios.delete(`/books/${id}`)
+//         .then(res => {
+//             console.log(res)
+//             console.log(res.data)
+//         })
+//     }
+//         if(!props.show) {
+//         return null
+// }
     return (
-        <div>
+        <div className="delete-modal">
+            <div className="modal-content">
+                <div className="modal-text">
             <h3>Are you sure you want to delete this book?</h3>
+                
             <button
                 type="submit"
                 onClick={handleSubmit}
+                className="delete-confirm"
                 >Delete</button>
-            <Link to="/"><button>Cancel</button></Link>
+            <Link to="/"><button className="back-button">Cancel</button></Link>
+            </div>
+            </div>
             
-        </div>
+         </div>
+     
     );
 }
 

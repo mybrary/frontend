@@ -10,10 +10,10 @@
   justify-content: center;
 }
 
-.modal-content {
+/* .modal-content {
   width: 500px;
   background-color: #fff;
-}
+} */
 
 .modal-header, .modal-footer {
   padding: 10px;

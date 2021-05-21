@@ -206,12 +206,29 @@ Buttons
   background:var(--mainRed);
   border: solid 1px var(--lightGrey);
   border-radius: 4px;
+  cursor: pointer;
 }
 .deleteButton:hover {
   background: #FF333A;
 }
 .deleteImg {
   width: 18px;
+}
+
+.delete-confirm{
+  background:var(--mainRed);
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  border: solid 1px var(--lightGrey);
+  border-radius: 2px;
+  color: var(--offWhite);
+}
+
+.delete-confirm:hover {
+  background: #FF333A;
 }
 
 .edit-button,
@@ -230,4 +247,71 @@ Buttons
 .edit-button,
 .back-button:hover{
   background: #DBCEA9;
+  cursor: pointer;
 }
+
+/* 
+====== 
+Delete Modal
+======
+*/
+
+.delete-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.modal-content {
+  width: 50%;
+  height: 200px;
+  background: #e9e6dc;
+  margin: auto;
+  text-align: center;
+  border: solid 1px var(--lightGrey);
+  border-radius: 2px;
+  box-shadow: var(--lightShadow);
+}
+
+.modal-text {
+  margin-top: 50px;
+}
+
+/* 
+====== 
+About Modal
+======
+*/
+
+.about-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-content {
+  width: 75%;
+  height: 350px;
+  background: #e9e6dc;
+  margin: auto;
+  text-align: center;
+  border: solid 1px var(--lightGrey);
+  border-radius: 2px;
+  box-shadow: var(--lightShadow);
+}
+
+.about-text {
+  margin: 40px;
+}
+

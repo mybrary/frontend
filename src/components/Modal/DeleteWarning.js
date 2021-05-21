@@ -27,8 +27,8 @@ function DeleteWarning(props) {
                     Are you sure you want to delete this book?
                 </div>
                 <div className="modal-footer">
-                    <button onClick={props.onClose}className="button">Close</button>
-                    <button type="submit" onClick={handleSubmit}>Delete</button>
+                    <button onClick={props.onClose} className="back-button">Close</button>
+                    <button type="submit" onClick={handleSubmit} className="deleteButton">Delete</button>
                 </div>
             </div>
             

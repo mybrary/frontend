@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto&display=swap');
 
-body {
-     
-}
+
 input,
 textarea {
     border: none;
@@ -14,9 +12,14 @@ textarea {
 }
 
 .submit-button {
-    width: 75px;
-    font-family: 'Raleway', sans-serif; 
-    background: #e7dfc6;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-family: 'Raleway', sans-serif;
+    background:var(--navBackground);
+    cursor: pointer;
+    border: solid 1px var(--lightGrey);
+    border-radius: 2px;
     color: #222;
 }
 
