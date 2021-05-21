@@ -25,4 +25,8 @@ The Mybrary app can be access on [Heroku](https://mybrarysei322.herokuapp.com/),
 
 ### Resources
 
-TBD
+Clipart, icons, etc, were found at the following:
+
+https://www.adazing.com/book-clipart/
+
+https://www.clipartmax.com/middle/m2i8A0N4Z5K9Z5H7_trash-can-vector-trash-can-icon-png/
