@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Route exact path="/myBooks"  component={MyBooks} />
+      <Route exact path="/"  component={MyBooks} />
       <Route exact path="/books/:id"  component={BookDetails} />
       <Route exact path="/editBook/:id"  component={EditBook}/>
       <Route exact path="/delete/:id"  component={DeleteButton}/>

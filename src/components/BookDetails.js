@@ -18,17 +18,17 @@ useEffect(() => {
     getBook()
     },[id])
     return (
-        <div className="container">
-            <div className="book-list">
-            <h2>{book.title}</h2>
-            <h4>{book.author}</h4>
-            <p>Rating : {book.rating}</p>
-            <p>Review: {book.review}</p>
-            </div>
-        <Link to={`/editBook/${book._id}`} key={book._id}><button>Edit</button></Link>
+      <div className="book-details">
+        <h2>{book.title}</h2>
+        <h4>{book.author}</h4>
+        <p>Rating : {book.rating}</p>
+        <p>Review: {book.review}</p>
+      <div className="button-group">
+        <Link to={`/editBook/${book._id}`} key={book._id}><button className="edit-button">Edit</button></Link>
+        <Link to={`/`}><button className="back-button">Back to My Books</button></Link>
+      </div>
+      </div>
         
-        <Link to={`/myBooks`}><button>My Books</button></Link>
-        </div>
     );
 }
 

@@ -18,13 +18,12 @@ useEffect(() => {
     getBook()
     },[id])
     return (
-        <div className="container">
-            <div className="book-list">
+        
+        <div className="edit-details">
             <h2>{book.title}</h2>
             <h4>{book.author}</h4>
             <p>Rating : {book.rating}</p>
             <p>Review: {book.review}</p>
-            </div>
         </div>
     );
 }

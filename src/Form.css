@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto&display=swap');
+
+body {
+     
+}
+input,
+textarea {
+    border: none;
+    background: rgb(225, 225, 225);
+    border-radius: .25rem;
+    padding: .75rem 1rem;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    width: 75px;
+    font-family: 'Raleway', sans-serif; 
+    background: #e7dfc6;
+    color: #222;
+}
+
+.submit-button:hover {
+    background: #DBCEA9;
+    cursor: pointer;
+}

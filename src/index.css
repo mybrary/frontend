@@ -19,6 +19,7 @@ Variables
   --mainLightColor: #d7f2ba;
   --mainGreen: #0c7c59;
   --mainBlue: #58a4b0;
+  --mainRed: #FF5A5F;
   --mainSpacing: 0.3rem;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
@@ -53,6 +54,9 @@ a {
   color: var(--mainBlack);
 }
 
+h2 {
+  color: var(--mainGreen);
+}
 /* 
 ====== 
 Navbar
@@ -109,6 +113,7 @@ Navbar
 .nav-links a:hover {
   color: var(--offWhite);
   background: var(--mainDarkColor);
+  
 }
 
 
@@ -117,31 +122,112 @@ Navbar
 Book List
 ======
 */
-
+.book-collection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  margin: 50px 50px 15px 50px;
+}
 .book-list{
-  margin: 50px;
+  display: flex;
+  align-items: center;
+  margin: 0px 50px 0 50px;
+  
+  border-top: 1px solid var(--lightGrey);
+  font-size: 15px;
+}
+.book-list:hover {
+  background: #eee;
 }
 .book-list ul {
   list-style-type: none;
   width: 100%;
 }
 
-.book-list h2{
-  font: 16px/1.5;
+.book-title {
+  font-size: 18px;
 }
 
-.book-list img {
-  float: left;
-  margin: 0 15px 0 0;
+.book-title:hover {
+  text-decoration: underline;
 }
  
  .book-list li {
-  padding: 10px;
+  padding-top: -20px;
   overflow: auto;
 }
+
+.list-buttons {
+  padding-right: 20px;
+}
  
- .book-list li:hover {
-  background: #eee;
-  cursor: pointer;
+/* 
+====== 
+Book List
+======
+*/
+.book-details {
+  margin: 50px 50px 15px 50px;
+}
+.edit-details{
+  margin-bottom: 50px;
+}
+/* 
+====== 
+Buttons
+======
+*/
+
+.addBookButton {
+  display: flex;
+  align-items: center;
+  width: 77px;
+  height: 25px;
+  color: var(--offWhite);
+  background-color: var(--mainBlue);
+  border: solid 1px var(--lightGrey);
+  border-radius: 4px;
 }
 
+.addBookButton:hover{
+  background-color: #488e99;
+  
+}
+
+.plus {
+  font-size: 22px;
+}
+
+.deleteButton {
+  width: 25px;
+  padding: 2px;
+  background:var(--mainRed);
+  border: solid 1px var(--lightGrey);
+  border-radius: 4px;
+}
+.deleteButton:hover {
+  background: #FF333A;
+}
+.deleteImg {
+  width: 18px;
+}
+
+.edit-button,
+.back-button{
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-family: 'Raleway', sans-serif;
+  background:var(--navBackground);
+  cursor: pointer;
+  border: solid 1px var(--lightGrey);
+  border-radius: 2px;
+  color: #222;
+}
+
+.edit-button,
+.back-button:hover{
+  background: #DBCEA9;
+}

@@ -25,7 +25,7 @@ function DeleteButton(props) {
                 type="submit"
                 onClick={handleSubmit}
                 >Delete</button>
-            <Link to="/myBooks"><button>Cancel</button></Link>
+            <Link to="/"><button>Cancel</button></Link>
             
         </div>
     );

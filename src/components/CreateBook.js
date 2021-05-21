@@ -4,14 +4,14 @@ import axios from 'axios';
 function CreateBook(props) {
     const [addBook, setAddBook] = useState();
     const [title, setTitle] = useState();
-    const [author, setAuthor] = useState();
+    const [authors, setAuthors] = useState();
     const [publish_date, setPublishDate] = useState();
     const [rating, setRating] = useState();
     const [review, setReview] = useState();
     
     const bookInfo = {
         title: title,
-        author: author,
+        authors: authors,
         publish_date: publish_date,
         rating: rating,
         review: review
@@ -30,9 +30,6 @@ function CreateBook(props) {
         setAddBook(data); 
         console.log(bookInfo)
       };
-    useEffect(() => {
-        postBooks();
-      }, []);
       return (
         <div>
         <form onSubmit={handleSubmit}>
@@ -41,7 +38,7 @@ function CreateBook(props) {
             <input type = "text" name = "Book Title" onChange={event => setTitle(event.target.value)} />
           <br />
           Author(s)<br />
-            <input type = "text" name = "Author" onChange={event => setAuthor(event.target.value)} />
+            <input type = "text" name = "Author" onChange={event => setAuthors(event.target.value)} />
             <br />
             Publish Date<br />
             <input type = "text" name = "Publish Date" onChange={event => setPublishDate(event.target.value)} />

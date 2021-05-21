@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import DeleteButton from './buttons/DeleteButton'
 import DeleteWarning from './Modal/DeleteWarning'
+import DeleteImage from '../resources/trashcan.png'
 import { Link } from 'react-router-dom'
+ 
 import axios from "axios";
 
 function MyBooks() {
@@ -22,23 +24,30 @@ const [books, setBooks] = useState([])
 
     return (
         <section className="container">
+          <div className="book-collection">
+          <h2>My Book Collection</h2>
+          <Link to="/addNewBook"><button className="addBookButton"><span className="plus">&#x2b;</span> Add Book</button></Link>
+          </div>
             {books.map((book, id) => {
                 return(
-                    
                     <div className="book-list">
                     <ul>
-                    <li>
+                    <li className="book-details">
                     <Link to={`books/${book._id}`} key={book._id}>
-                    <h2>{book.title}</h2>
+                    <h2 className="book-title">{book.title}</h2>
                     </Link>
-                    <h4>{book.author}</h4>
+                    <h4>{book.authors}</h4>
                     <p>Rating : {book.rating}</p>
                     <p>Review: {book.review}</p>
-                    <Link to={`/delete/${book._id}`} key={book._id}><button>Delete</button></Link>
+                    
                     </li>
                     </ul>
+                    <div className="list-buttons">
+                    <Link to={`/delete/${book._id}`} key={book._id}>
+                      <button className="deleteButton"><img src={DeleteImage} alt='delete button' className="deleteImg"/></button>
+                      </Link>
                     </div>
-                    
+                    </div>
                 )
             })}
         </section>
