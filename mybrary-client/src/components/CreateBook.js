@@ -5,7 +5,7 @@ import axios from 'axios';
 function CreateBook(props) {
     const [addBook, setAddBook] = useState();
     const [title, setTitle] = useState();
-    const [author, setAuthor] = useState();
+    const [authors, setAuthors] = useState();
     const [rating, setRating] = useState();
     const [review, setReview] = useState();
     
@@ -13,7 +13,7 @@ let history = useHistory();
 
     const bookInfo = {
         title: title,
-        author: author,
+        authors: authors,
         rating: rating,
         review: review,
         read: false
@@ -39,7 +39,7 @@ let history = useHistory();
             <input type = "text" name = "Book Title" onChange={event => setTitle(event.target.value)} />
           <br />
           Author(s)<br />
-            <input type = "text" name = "Author" onChange={event => setAuthor(event.target.value)} />
+            <input type = "text" name = "Author" onChange={event => setAuthors(event.target.value)} />
             <br />
             Rating<br />
             <input type = "number" name = "Rating" onChange={event => setRating(event.target.value)} />
