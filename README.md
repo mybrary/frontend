@@ -4,8 +4,8 @@ General Assembly SEI Project 3: MyBrary
 
 ## Group Members
 
-Kortney Miranda
-Abdul Mir
+Kortney Miranda<br>
+Abdul Mir<br>
 Brian Mays
 
 ### Welcome
