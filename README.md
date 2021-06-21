@@ -1,4 +1,4 @@
-# GA-SEI-Project-Three
+# MyBrary
 
 General Assembly SEI Project 3: MyBrary
 
